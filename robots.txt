@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kalangaraiiasacademy.com/sitemap.xml
+Sitemap: https://kalangaraitrust.org/sitemap.xml
