@@ -10,7 +10,10 @@ function setLanguage(lang){
   $$('[data-en-html]').forEach(el=>{el.innerHTML=el.getAttribute('data-'+lang+'-html')||el.getAttribute('data-en-html')});
   $$('[data-en-placeholder]').forEach(el=>{el.placeholder=el.getAttribute('data-'+lang+'-placeholder')||el.getAttribute('data-en-placeholder')});
   ['en','ta','hi'].forEach(l=>{const b=document.getElementById(l+'Btn');if(!b)return;b.classList.toggle('active',lang===l);b.setAttribute('aria-pressed',lang===l)});
+  const cur=document.getElementById('langCur');if(cur)cur.textContent={en:'EN',ta:'தமிழ்',hi:'हिंदी'}[lang];
+  const lf=document.getElementById('langFloat');if(lf){lf.classList.remove('open');const t=document.getElementById('langToggle');if(t)t.setAttribute('aria-expanded','false')}
   store('kalangarai-language',lang);
+  if(window.fitNav) window.fitNav();
 }
 const savedLang=store('kalangarai-language');
 if(savedLang==='ta'||savedLang==='hi') setLanguage(savedLang);
@@ -23,17 +26,17 @@ menuBtn.addEventListener('click',()=>{const o=navLinks.classList.toggle('open');
 $$('a',navLinks).forEach(a=>a.addEventListener('click',closeMenu));
 document.addEventListener('click',e=>{
   if(navLinks.classList.contains('open')&&!navLinks.contains(e.target)&&e.target!==menuBtn) closeMenu();
-  if(!e.target.closest('.dd')) $$('.dd.open').forEach(d=>{d.classList.remove('open');$('.dd-btn',d).setAttribute('aria-expanded','false')});
+  if(!e.target.closest('.mdd')) $$('.mdd.open').forEach(d=>{d.classList.remove('open');$('.mdd-btn',d).setAttribute('aria-expanded','false')});
 });
 // dropdowns: click/tap to open (hover also works on desktop)
-$$('.dd').forEach(dd=>{
-  const btn=$('.dd-btn',dd);
+$$('.mdd').forEach(dd=>{
+  const btn=$('.mdd-btn',dd);
   btn.addEventListener('click',e=>{e.stopPropagation();const o=!dd.classList.contains('open');
-    $$('.dd.open').forEach(d=>{if(d!==dd){d.classList.remove('open');$('.dd-btn',d).setAttribute('aria-expanded','false')}});
+    $$('.mdd.open').forEach(d=>{if(d!==dd){d.classList.remove('open');$('.mdd-btn',d).setAttribute('aria-expanded','false')}});
     dd.classList.toggle('open',o);btn.setAttribute('aria-expanded',o)});
 });
 // on small screens, open the section that contains the current page
-if(window.matchMedia('(max-width:1300px)').matches){const c=$('.dd.current');if(c)c.classList.add('open')}
+if(window.matchMedia('(max-width:1023.98px)').matches){const c=$('.mdd.current');if(c)c.classList.add('open')}
 function pickInterest(v){const s=$('#interest');if(s)s.value=v}
 
 /* ---------- header shadow + back to top ---------- */
@@ -113,4 +116,47 @@ $$('form[data-mailto]').forEach(form=>form.addEventListener('submit',function(e)
   $$('button',bar).forEach(b=>b.addEventListener('click',()=>{
     $$('button',bar).forEach(x=>x.classList.toggle('active',x===b));
     const f=b.dataset.filter;$$('.masonry figure').forEach(fig=>fig.hidden=!(f==='all'||fig.dataset.cat===f))}));
+})();
+
+/* ---------- collapsible language picker ---------- */
+(function(){const lf=$('#langFloat'),t=$('#langToggle');if(!lf||!t)return;
+  t.addEventListener('click',e=>{e.stopPropagation();const o=lf.classList.toggle('open');t.setAttribute('aria-expanded',o)});
+  document.addEventListener('click',e=>{if(!lf.contains(e.target)){lf.classList.remove('open');t.setAttribute('aria-expanded','false')}});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){lf.classList.remove('open');t.setAttribute('aria-expanded','false')}});
+})();
+
+/* ---------- auto-fit navigation: works at any screen size, zoom, scaling, language or font ---------- */
+(function(){
+  const header=$('header'),bar=$('.nav1'),menu=$('#navLinks'),logo=$('.nav1 .logo'),actions=$('.nav1 .nav-actions');
+  if(!header||!bar||!menu) return;
+  const small=window.matchMedia('(max-width:1023.98px)');
+  // compare the visible top-level items (not the hidden dropdown panels) with the logo and the Donate button
+  const overflowing=()=>{
+    const kids=[...menu.children].filter(k=>getComputedStyle(k).display!=='none');
+    if(!kids.length) return false;
+    const first=kids[0].getBoundingClientRect(),last=kids[kids.length-1].getBoundingClientRect();
+    const l=logo.getBoundingClientRect(),a=actions.getBoundingClientRect(),m=menu.getBoundingClientRect();
+    return first.left<l.right+12 || last.right>a.left-12 || kids.some(k=>k.getBoundingClientRect().top>first.top+first.height);
+  };
+  let busy=false;
+  function fit(){
+    if(busy) return; busy=true;
+    header.classList.add('nav-measuring');
+    header.classList.remove('nav-tight','nav-tight2','nav-collapsed');
+    if(!small.matches && overflowing()){
+      header.classList.add('nav-tight');
+      if(overflowing()){header.classList.add('nav-tight2');
+        if(overflowing()){header.classList.remove('nav-tight','nav-tight2');header.classList.add('nav-collapsed')}}
+    }
+    if(!header.classList.contains('nav-collapsed')&&!small.matches&&menu.classList.contains('open')) closeMenu();
+    void header.offsetWidth; header.classList.remove('nav-measuring'); busy=false;
+  }
+  window.fitNav=fit;
+  fit();
+  let t; const later=()=>{clearTimeout(t);t=setTimeout(fit,60)};
+  window.addEventListener('resize',later);
+  if(window.ResizeObserver) new ResizeObserver(later).observe(document.documentElement);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+  window.addEventListener('load',fit);
+  header.addEventListener('transitionend',e=>{if(e.target===bar)later()});
 })();

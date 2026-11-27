@@ -1,0 +1,16 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Free TNPSC, TNUSRB, SSC and RRB Competitive Examination Coaching",
+  "description": "Free classroom coaching, study materials, model examinations and mentoring in Nagapattinam for TNPSC Group II and Group IV, TNUSRB Police Constable and Sub-Inspector, SSC and RRB examinations.",
+  "url": "https://kalangaraitrust.org/ias-academy.html",
+  "inLanguage": ["ta", "en"],
+  "isAccessibleForFree": true,
+  "educationalLevel": "Competitive examination preparation",
+  "teaches": ["General Studies", "General Knowledge", "Quantitative Aptitude", "Reasoning", "Current Affairs", "Examination strategy"],
+  "provider": {"@type": "EducationalOrganization", "name": "Kalangarai IAS Academy", "url": "https://kalangaraitrust.org/",
+               "parentOrganization": {"@type": "NGO", "name": "Kalangarai Charitable and Educational Trust"}},
+  "offers": {"@type": "Offer", "category": "Free", "price": 0, "priceCurrency": "INR"},
+  "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "Onsite",
+    "location": {"@type": "Place", "name": "Kalangarai Free Training Centre", "address": {"@type": "PostalAddress", "addressLocality": "Nagapattinam", "addressRegion": "Tamil Nadu", "addressCountry": "IN"}}}
+}

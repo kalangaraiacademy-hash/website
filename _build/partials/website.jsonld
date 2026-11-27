@@ -1,0 +1,9 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Kalangarai Charitable & Educational Trust",
+  "alternateName": ["Kalangarai Trust", "Kalangarai IAS Academy", "கலங்கரை அறக்கட்டளை"],
+  "url": "https://kalangaraitrust.org/",
+  "inLanguage": ["en", "ta", "hi"],
+  "publisher": {"@type": "NGO", "name": "Kalangarai Charitable and Educational Trust"}
+}

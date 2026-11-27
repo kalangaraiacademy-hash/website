@@ -46,6 +46,7 @@ def head(meta, slug):
     ld = []
     if slug == 'index':
         ld.append(read(B, 'partials', 'org.jsonld').strip())
+        ld.append(read(B, 'partials', 'website.jsonld').strip())
     if crumb:
         items = [{"@type": "ListItem", "position": 1, "name": "Home", "item": SITE}]
         parent = meta.get('parent')
@@ -107,7 +108,7 @@ def mark_nav(header, meta):
     if group and not marked and f'data-navgroup="{group}"' in header:  # plain top-level link for the whole section
         header = header.replace(f'data-navgroup="{group}"', f'data-navgroup="{group}" class="active"', 1)
     if group:
-        header = header.replace(f'<div class="dd" data-group="{group}">', f'<div class="dd current" data-group="{group}">', 1)
+        header = header.replace(f'<div class="mdd" data-group="{group}">', f'<div class="mdd current" data-group="{group}">', 1)
     return header
 
 

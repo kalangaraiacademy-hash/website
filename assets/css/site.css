@@ -700,21 +700,20 @@ header.scrolled .nav2 .nav-links{padding:8px 0}
 html{scroll-padding-top:160px}
 
 /* desktop & laptop (1024px and up): always show the full menu */
-@media(min-width:1024px){
-  .menu-btn{display:none!important}
+/* default: full menu visible (laptops & desktops) */
+  .nav2 .menu-btn{display:none}
   .nav2 .nav-links{display:flex!important;position:static;visibility:visible;opacity:1;transform:none;box-shadow:none;background:none;flex-direction:row;width:auto;max-height:none;overflow:visible;border-radius:0}
   .nav2 .nav-links>a{width:auto;border-bottom:0;padding:4px 0;font-size:15px}
   .nav2 .nav-links>a.nav-evening{padding:5px 12px;margin:0}
   .nav2 .nav-links>a.nav-donate-m{display:none}
   .nav2 .nav-actions .btn{display:inline-flex!important}
-}
 @media(min-width:1024px) and (max-width:1250px){
   .nav2 .nav-links{gap:6px 16px}
   .nav2 .nav-links>a{font-size:14px}
   .nav-phone+.nav-phone{display:none}
 }
 /* tablets & phones: collapse into the ☰ panel */
-@media(max-width:1023px){
+@media(max-width:1023.98px){
   .nav-top{border-bottom:0;min-height:76px}
   .nav-phone{display:none}
   .nav2 .nav-actions .btn{display:none}
@@ -733,3 +732,229 @@ html{scroll-padding-top:160px}
   .hero{padding-top:90px}
   .page-hero{padding-top:118px}
 }
+
+@media(min-width:1024px) and (max-width:1250px){.nav2 .nav-links{gap:6px 13px}.nav2 .nav-links>a{font-size:13.5px}.nav2 .nav-links>a.nav-evening{padding:4px 9px}.nav-evening em{font-size:9px;padding:1px 5px}header .nav.nav2{padding:0 20px}}
+
+@media(max-width:1023.98px){.nav2 .menu-btn{display:block}.nav2 .nav-actions .btn{display:none!important}.nav2 .nav-links{display:flex!important}.nav2 .nav-links>a.nav-donate-m{display:inline-flex;justify-content:center;width:100%;margin-top:8px;border-bottom:0}}
+
+/* =========================================================
+   FINAL navigation: one row, 5 main items + dropdown groups
+   (this block overrides the earlier nav experiments above)
+   ========================================================= */
+header .nav.nav1{flex-direction:row;justify-content:space-between;align-items:center;gap:22px;min-height:92px;padding:0 30px}
+header.scrolled .nav.nav1{min-height:70px}
+.nav1 .logo-name{font-size:19px}
+.mnav{display:flex;align-items:center;gap:28px}
+.mnav>a,.mdd-btn{font-size:15.5px;font-weight:600;color:#1d2733;white-space:nowrap;background:none;border:0;cursor:pointer;padding:6px 0;display:inline-flex;align-items:center;gap:6px;font-family:inherit}
+.mnav>a:hover,.mdd-btn:hover{color:var(--primary)}
+.mnav>a.active,.mdd.current>.mdd-btn{color:var(--primary);box-shadow:inset 0 -2px 0 var(--accent)}
+.mdd-btn i{font-style:normal;font-size:10px;transition:transform .2s}
+.mdd{position:relative}
+.mdd-menu{position:absolute;top:calc(100% + 24px);left:-16px;min-width:270px;background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:0 18px 44px rgba(6,33,62,.16);padding:8px;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s,transform .18s,visibility .18s;z-index:130}
+.mdd-menu:before{content:"";position:absolute;left:0;right:0;top:-26px;height:26px}
+.mdd:hover>.mdd-menu,.mdd:focus-within>.mdd-menu,.mdd.open>.mdd-menu{opacity:1;visibility:visible;transform:none}
+.mdd:hover>.mdd-btn i,.mdd.open>.mdd-btn i{transform:rotate(180deg)}
+header.scrolled .mdd-menu{top:calc(100% + 14px)}
+.mdd-menu a{display:block;padding:9px 12px;border-radius:8px;font-size:14px;font-weight:600;color:var(--body);white-space:nowrap}
+.mdd-menu a:hover,.mdd-menu a.active{background:var(--surface);color:var(--primary)}
+.mdd-sep{font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);padding:12px 12px 4px;margin-top:6px;border-top:1px solid var(--border)}
+.mnav>a.nav-evening{background:var(--accent-soft);border:1px solid #f0d98f;color:var(--navy);padding:7px 13px;border-radius:999px;box-shadow:none}
+.mnav>a.nav-evening:hover,.mnav>a.nav-evening.active{background:var(--accent);border-color:var(--accent)}
+.mnav>a.nav-donate-m{display:none}
+.nav1 .nav-actions{display:flex;align-items:center;gap:12px}
+.nav1 .nav-actions .btn{display:inline-flex;border-radius:10px;padding:14px 26px;font-size:15px}
+.nav1 .menu-btn{display:none}
+.hero{padding-top:130px}
+.page-hero{padding-top:190px}
+html{scroll-padding-top:130px}
+
+@media(max-width:1250px){
+  header .nav.nav1{padding:0 20px;gap:14px}
+  .mnav{gap:18px}
+  .mnav>a,.mdd-btn{font-size:14.5px}
+  .nav1 .nav-actions .btn{padding:12px 18px;font-size:14px}
+}
+@media(max-width:1100px){
+  .nav1 .logo-name small{display:none}
+  .mnav{gap:14px}
+  .mnav>a,.mdd-btn{font-size:14px}
+  .mnav>a.nav-evening{padding:5px 10px}
+}
+/* phones & small tablets: ☰ panel */
+@media(max-width:1023.98px){
+  header .nav.nav1{min-height:76px}
+  .nav1 .logo-name small{display:block}
+  .nav1 .menu-btn{display:block}
+  .nav1 .nav-actions .btn{display:none}
+  .mnav{position:absolute;top:calc(100% + 10px);left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:12px 20px 18px;visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .2s,transform .2s,visibility .2s;max-height:calc(100vh - 110px);overflow-y:auto}
+  .mnav.open{visibility:visible;opacity:1;transform:none}
+  .mnav>a,.mdd-btn{width:100%;justify-content:space-between;padding:12px 0;font-size:15.5px;border-bottom:1px solid var(--border);box-shadow:none}
+  .mnav>a.active,.mdd.current>.mdd-btn{box-shadow:none}
+  .mnav>a.nav-evening{width:auto;align-self:flex-start;margin:10px 0;padding:7px 14px;border-bottom:1px solid #f0d98f}
+  .mdd-menu{position:static;display:none;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;padding:4px 0 8px 12px;min-width:0}
+  .mdd-menu:before{display:none}
+  .mdd.open>.mdd-menu{display:block}
+  .mdd:hover>.mdd-menu{display:none}.mdd.open:hover>.mdd-menu{display:block}
+  .mdd-menu a{white-space:normal;font-size:14.5px}
+  .mnav>a.nav-donate-m{display:inline-flex;justify-content:center;margin-top:14px;border-bottom:0;color:var(--navy);padding:13px}
+  .hero{padding-top:110px}
+  .page-hero{padding-top:140px}
+}
+@media(max-width:600px){
+  header .nav.nav1{min-height:66px;padding:0 14px}
+  .hero{padding-top:90px}
+  .page-hero{padding-top:118px}
+}
+
+@media(max-width:1023.98px){.mnav>a.nav-donate-m{background:var(--accent);border:2px solid var(--accent);border-radius:10px;font-weight:800}}
+
+/* home: compact trust strip */
+.trust-strip{padding:34px 0;border-top:1px solid var(--border)}
+.trust-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px}
+.trust-inner>div b{display:block;color:var(--navy);font-size:18px}
+.trust-inner>div span{font-size:13px;color:var(--muted)}
+@media(max-width:600px){.trust-inner>div{flex:1 1 40%}}
+
+/* ---------- compact, collapsible language picker ---------- */
+.lang-float{position:fixed;left:16px;bottom:20px;z-index:95;display:block;background:none;border:0;padding:0;box-shadow:none}
+.lang-toggle{display:inline-flex;align-items:center;gap:5px;background:#fff;border:1px solid var(--border);border-radius:999px;padding:7px 11px;font-size:12.5px;font-weight:700;color:var(--navy);cursor:pointer;box-shadow:0 6px 18px rgba(6,33,62,.16);font-family:inherit}
+.lang-toggle span{font-size:14px}
+.lang-toggle i{font-style:normal;font-size:9px;opacity:.7;transition:transform .2s}
+.lang-float.open .lang-toggle i{transform:rotate(180deg)}
+.lang-opts{position:absolute;left:0;bottom:calc(100% + 8px);display:flex;flex-direction:column;min-width:120px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:5px;box-shadow:0 12px 30px rgba(6,33,62,.18);opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .16s,transform .16s,visibility .16s}
+.lang-float.open .lang-opts{opacity:1;visibility:visible;transform:none}
+.lang-opts button{border:0;background:none;text-align:left;padding:8px 10px;border-radius:8px;font-size:13px;font-weight:700;color:var(--body);cursor:pointer;font-family:inherit}
+.lang-opts button:hover{background:var(--surface)}
+.lang-opts button.active{background:var(--primary);color:#fff}
+@media(max-width:600px){.lang-float{left:10px;bottom:16px}.lang-toggle{padding:6px 9px;font-size:12px}}
+
+/* ---------- nav: no overlap in Tamil / Hindi ---------- */
+.nav1 .logo{flex-shrink:0}
+.mnav{min-width:0}
+.nav1 .nav-actions{flex-shrink:0}
+body.lang-ta .mnav,body.lang-hi .mnav{gap:20px}
+body.lang-ta .mnav>a,body.lang-ta .mdd-btn{font-size:14px}
+@media(min-width:1024px) and (max-width:1440px){
+  body.lang-ta .nav1 .logo-name small{display:none}
+  body.lang-ta .mnav{gap:14px}
+  body.lang-ta .nav1 .nav-actions .btn{padding:12px 16px}
+}
+@media(min-width:1024px) and (max-width:1250px){
+  body.lang-ta .nav1 .logo-name{font-size:16px}
+  body.lang-ta .mnav{gap:10px}
+  body.lang-ta .mnav>a,body.lang-ta .mdd-btn{font-size:13px}
+  body.lang-ta .mnav>a.nav-evening{padding:4px 8px}
+  body.lang-hi .mnav{gap:12px}
+}
+@media(min-width:1024px) and (max-width:1120px){
+  body.lang-ta .nav1 .logo-name{display:none}
+}
+
+/* =========================================================
+   Auto-fit navigation (classes set by site.js after measuring)
+   nav-tight     : menu slightly too wide -> compact spacing
+   nav-collapsed : still too wide -> ☰ panel (Donate stays visible)
+   ========================================================= */
+header.nav-tight .mnav{gap:14px}
+header.nav-tight .mnav>a,header.nav-tight .mdd-btn{font-size:14px}
+header.nav-tight .nav1 .logo-name small{display:none}
+header.nav-tight .nav1 .nav-actions .btn{padding:11px 16px;font-size:14px}
+header.nav-tight .mnav>a.nav-evening{padding:5px 10px}
+
+header.nav-collapsed .nav1 .menu-btn{display:block}
+header.nav-collapsed .nav1 .nav-actions .btn{display:inline-flex}
+header.nav-collapsed .nav1 .logo-name small{display:block}
+header.nav-collapsed .mnav{position:absolute;top:calc(100% + 10px);left:auto;right:0;width:min(420px,100%);flex-direction:column;align-items:stretch;gap:0;background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:12px 20px 18px;visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .2s,transform .2s,visibility .2s;max-height:calc(100vh - 120px);overflow-y:auto}
+header.nav-collapsed .mnav.open{visibility:visible;opacity:1;transform:none}
+header.nav-collapsed .mnav>a,header.nav-collapsed .mdd-btn{width:100%;justify-content:space-between;padding:12px 0;font-size:15.5px;border-bottom:1px solid var(--border);box-shadow:none}
+header.nav-collapsed .mnav>a.nav-evening{width:auto;align-self:flex-start;margin:10px 0;padding:7px 14px;border-bottom:1px solid #f0d98f}
+header.nav-collapsed .mdd-menu{position:static;display:none;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;padding:4px 0 8px 12px;min-width:0}
+header.nav-collapsed .mdd-menu:before{display:none}
+header.nav-collapsed .mdd.open>.mdd-menu{display:block}
+header.nav-collapsed .mdd:hover>.mdd-menu{display:none}
+header.nav-collapsed .mdd.open:hover>.mdd-menu{display:block}
+header.nav-collapsed .mdd-menu a{white-space:normal}
+header.nav-collapsed .mnav>a.nav-donate-m{display:none}
+/* while measuring, never animate */
+header.nav-measuring *{transition:none!important}
+
+/* ---------- Vanavil-like proportions for the menu bar ---------- */
+header .nav.nav1{min-height:100px;padding:0 34px;border-radius:20px}
+header.scrolled .nav.nav1{min-height:74px}
+.nav1 .logo{gap:12px}
+.nav1 .logo img{height:66px}
+header.scrolled .nav1 .logo img{height:50px}
+.nav1 .logo-name{font-size:22px;letter-spacing:1px}
+.nav1 .logo-name small{font-size:8.5px;letter-spacing:1.6px}
+.mnav{gap:34px}
+.mnav>a,.mdd-btn{font-size:17px;font-weight:600;color:#14202c}
+.mnav>a.nav-evening{padding:7px 14px}
+.nav1 .nav-actions .btn{border-radius:8px;padding:17px 30px;font-size:17px;font-weight:700}
+/* tightening steps used by the auto-fit script */
+header.nav-tight .mnav{gap:18px}
+header.nav-tight .mnav>a,header.nav-tight .mdd-btn{font-size:15px}
+header.nav-tight .nav1 .logo-name{font-size:19px}
+header.nav-tight .nav1 .nav-actions .btn{padding:13px 20px;font-size:15px}
+@media(max-width:1023.98px){
+  header .nav.nav1{min-height:72px;padding:0 18px}
+  .nav1 .logo img{height:50px}
+  .nav1 .logo-name{font-size:18px}
+}
+@media(max-width:600px){
+  header .nav.nav1{min-height:64px;padding:0 14px;border-radius:14px}
+  .nav1 .logo img{height:42px}
+  .nav1 .logo-name{font-size:16px}
+}
+
+header .nav.container.nav1{width:min(1480px,95%)}
+
+/* ---------- language picker in the menu bar (top right, before Donate) ---------- */
+.lang-float.lang-top{position:relative;left:auto;bottom:auto;z-index:auto}
+.lang-top .lang-toggle{box-shadow:none;border:1px solid var(--border);background:#fff;padding:9px 12px;font-size:14px;border-radius:8px}
+.lang-top .lang-toggle:hover{border-color:var(--primary-2)}
+.lang-top .lang-toggle i{font-size:10px}
+.lang-top .lang-opts{top:calc(100% + 10px);bottom:auto;left:auto;right:0;transform:translateY(-6px)}
+.lang-top.open .lang-opts{transform:none}
+.lang-float.lang-top.open .lang-toggle i{transform:rotate(180deg)}
+header.nav-tight .lang-top .lang-toggle{padding:8px 10px;font-size:13px}
+@media(max-width:600px){.lang-top .lang-toggle{padding:7px 9px;font-size:12.5px}.lang-top .lang-toggle span{display:none}}
+
+/* small phones: logo + language + menu must fit in one row */
+.nav1 .logo,.nav1 .logo-name{min-width:0}
+@media(max-width:600px){.nav1 .nav-actions{gap:8px}.nav1 .menu-btn{font-size:24px;padding:0 2px}}
+@media(max-width:520px){.nav1 .logo-name small{display:none}.nav1 .logo{gap:8px}.nav1 .logo img{height:40px}.nav1 .logo-name{font-size:15px;letter-spacing:.5px}}
+@media(max-width:345px){.nav1 .logo-name{display:none}}
+
+/* SEO: the keyword H1 keeps the small tag look; the slogan keeps the big headline look */
+.hero h1.hero-tag,body.lang-ta .hero h1.hero-tag,body.lang-hi .hero h1.hero-tag{font-family:inherit;font-size:12.5px;line-height:1.5;margin:0;font-weight:800;letter-spacing:2px}
+body.lang-ta .hero h1.hero-tag,body.lang-hi .hero h1.hero-tag{letter-spacing:.3px;font-size:13px}
+.hero .hero-title{font-family:'Playfair Display','Noto Sans Tamil',serif;font-size:clamp(40px,6vw,68px);margin:22px 0 18px;line-height:1.1;font-weight:700;color:#fff;max-width:none}
+.hero .hero-title em{font-style:normal;color:var(--accent)}
+body.lang-ta .hero .hero-title{font-family:'Noto Sans Tamil',sans-serif;font-size:clamp(32px,4.6vw,52px);line-height:1.35}
+body.lang-hi .hero .hero-title{font-family:'Noto Sans Devanagari',sans-serif;font-size:clamp(34px,5vw,58px);line-height:1.3}
+.page-hero h1{font-size:clamp(30px,4.2vw,48px)}
+
+/* ---------- roomier menu bar spacing ---------- */
+header .nav.nav1{gap:40px}
+.mnav{gap:42px}
+.nav1 .nav-actions{gap:16px;padding-left:28px;border-left:1px solid var(--border)}
+.mnav>a.nav-evening{padding:8px 16px}
+header.nav-tight .mnav{gap:30px}
+header.nav-tight .mnav>a,header.nav-tight .mdd-btn{font-size:15.5px}
+header.nav-tight .nav1 .nav-actions{padding-left:20px}
+header.nav-collapsed .nav1 .nav-actions{border-left:0;padding-left:0}
+@media(max-width:1023.98px){.nav1 .nav-actions{border-left:0;padding-left:0;gap:10px}}
+/* dropdown panels: more breathing room */
+.mdd-menu{padding:12px;min-width:290px}
+.mdd-menu a{padding:11px 14px;font-size:14.5px;line-height:1.35}
+.mdd-menu a+a{margin-top:2px}
+.mdd-sep{margin:10px 4px 4px;padding:14px 10px 6px}
+
+/* balanced spacing */
+header .nav.nav1{gap:30px}
+.mnav{gap:34px}
+.nav1 .nav-actions{padding-left:22px}
+header.nav-tight .mnav{gap:26px}
+header.nav-tight2 .nav1 .logo-name{display:none}
+header.nav-tight2 .nav1 .logo img{height:58px}
+header.nav-tight2 .mnav{gap:24px}

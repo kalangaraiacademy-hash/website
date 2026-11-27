@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Free NEET Coaching Programme",
+  "description": "Free NEET coaching for rural and Government Model School students in Nagapattinam: daily Physics, Chemistry and Biology classes by Chennai faculty, weekly tests, performance analysis, model tests and individual mentoring.",
+  "url": "https://kalangaraitrust.org/neet-academy.html",
+  "inLanguage": ["ta", "en"],
+  "isAccessibleForFree": true,
+  "teaches": ["Physics", "Chemistry", "Biology", "NEET examination strategy"],
+  "provider": {"@type": "EducationalOrganization", "name": "Kalangarai NEET Academy", "url": "https://kalangaraitrust.org/",
+               "parentOrganization": {"@type": "NGO", "name": "Kalangarai Charitable and Educational Trust"}},
+  "offers": {"@type": "Offer", "category": "Free", "price": 0, "priceCurrency": "INR"},
+  "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "Onsite",
+    "location": {"@type": "Place", "name": "Nagapattinam", "address": {"@type": "PostalAddress", "addressLocality": "Nagapattinam", "addressRegion": "Tamil Nadu", "addressCountry": "IN"}}}
+}
