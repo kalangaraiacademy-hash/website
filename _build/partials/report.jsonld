@@ -1,0 +1,12 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Report",
+  "name": "Impact Journey Report 2018–26",
+  "description": "Nine years of service, empowerment and social impact by Kalangarai Charitable and Educational Trust, Nagapattinam.",
+  "url": "https://kalangaraitrust.org/annual-report.html",
+  "image": "https://kalangaraitrust.org/annual-report/kalangarai-annual-report-page-01.webp",
+  "inLanguage": "en",
+  "numberOfPages": 40,
+  "author": {"@type": "NGO", "name": "Kalangarai Charitable and Educational Trust", "url": "https://kalangaraitrust.org/"},
+  "encoding": {"@type": "MediaObject", "encodingFormat": "application/pdf", "contentUrl": "https://kalangaraitrust.org/annual-report/kalangarai-impact-journey-report-2018-26.pdf"}
+}

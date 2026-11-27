@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "name": "Kalangarai Charitable and Educational Trust",
+  "alternateName": ["Kalangarai Trust", "கலங்கரை அறக்கட்டளை"],
+  "url": "https://kalangaraitrust.org/",
+  "logo": "https://kalangaraitrust.org/images/kalangarai-logo.webp",
+  "image": "https://kalangaraitrust.org/images/og-kalangarai-ias-academy.jpg",
+  "description": "Charitable and educational trust in Nagapattinam, Tamil Nadu, providing free TNPSC, TNUSRB, SSC, RRB and NEET coaching, a free residential training centre, the Sindhanai Sirpi after-school centre and community programmes for rural, first-generation and economically disadvantaged learners.",
+  "foundingDate": "2018-07-05",
+  "founder": {"@type": "Person", "name": "V. Kamal", "jobTitle": "Founder & Managing Trustee"},
+  "email": "kalangaraiias@gmail.com",
+  "telephone": ["+91-70947-91551", "+91-90033-90665"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Nagapattinam",
+    "addressRegion": "Tamil Nadu",
+    "addressCountry": "IN"
+  },
+  "areaServed": "Nagapattinam district, Tamil Nadu",
+  "identifier": [
+    {"@type": "PropertyValue", "propertyID": "Trust Registration No.", "value": "16/2018"},
+    {"@type": "PropertyValue", "propertyID": "NGO Darpan ID", "value": "TN/2022/0332570"}
+  ],
+  "knowsAbout": ["TNPSC Group II", "TNPSC Group IV", "TNUSRB Police Constable", "TNUSRB Sub-Inspector", "NEET", "SSC", "RRB", "After-school education", "Self-Help Groups"],
+  "subOrganization": [
+    {"@type": "EducationalOrganization", "name": "Kalangarai IAS Academy", "alternateName": "கலங்கரை ஐஏஎஸ் அகாடமி", "url": "https://kalangaraitrust.org/ias-academy.html"},
+    {"@type": "EducationalOrganization", "name": "Kalangarai NEET Academy", "url": "https://kalangaraitrust.org/neet-academy.html"},
+    {"@type": "EducationalOrganization", "name": "Sindhanai Sirpi After-School Centre", "url": "https://kalangaraitrust.org/sindhanai-sirpi.html"}
+  ]
+}

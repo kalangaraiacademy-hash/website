@@ -1,0 +1,20 @@
+{
+  "_how_to_add": "Put the PDF in the reports/ folder (annual reports in reports/annual/, IT returns in reports/it/), add an entry below with \"file\" set to its path, then run: python _build/build.py. Entries without a file show a 'Request a copy' button. Newest first.",
+  "annual": [
+    {
+      "title": "Impact Journey Report 2018–26",
+      "period": "2018 – 2026",
+      "file": "annual-report/kalangarai-impact-journey-report-2018-26.pdf",
+      "view": "annual-report.html",
+      "note": "Nine years of service, empowerment and social impact: programmes, achievers, governance and our 2026–2030 plan."
+    }
+  ],
+  "it": [
+    {
+      "title": "Income Tax Return acknowledgement",
+      "period": "AY 2023–24",
+      "status": "Available on request",
+      "note": "The ITR acknowledgement for AY 2023–24 is on file and will be published here."
+    }
+  ]
+}
