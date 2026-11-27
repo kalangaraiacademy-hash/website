@@ -115,7 +115,7 @@ def breadcrumb(meta):
     crumb = meta.get('crumb')
     if not crumb:
         return ''
-    parts = ['<a href="./" data-en="Home" data-ta="முகப்பு" data-hi="होम">Home</a>']
+    parts = ['<a href="index.html" data-en="Home" data-ta="முகப்பு" data-hi="होम">Home</a>']
     if meta.get('parent'):
         pslug, pname = [x.strip() for x in meta['parent'].split('|')]
         parts.append(f'<a href="{pslug}.html">{pname}</a>')
