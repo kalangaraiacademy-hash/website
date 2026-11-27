@@ -681,3 +681,55 @@ body.lang-hi .evening-badge,body.lang-ta .evening-badge{letter-spacing:.3px}
 
 .nav-links>a.nav-donate-m{display:none}
 @media(max-width:1300px){.nav-links>a.nav-donate-m{display:inline-flex;justify-content:center;width:100%;margin-top:8px;border-bottom:0;color:var(--navy)}.nav-links>a.nav-donate-m:after{display:none}}
+
+/* =========================================================
+   Two-row navigation card: everything visible, no dropdowns
+   ========================================================= */
+header .nav.nav2{flex-direction:column;align-items:stretch;justify-content:flex-start;min-height:0;padding:0 28px;gap:0}
+.nav-top{display:flex;justify-content:space-between;align-items:center;gap:18px;min-height:82px;border-bottom:1px solid var(--border);transition:min-height .25s}
+.nav-actions{display:flex;align-items:center;gap:20px}
+.nav-phone{font-size:14px;font-weight:700;color:var(--navy);white-space:nowrap}
+.nav-phone:hover{color:var(--primary-2)}
+.nav2 .nav-links{justify-content:center;flex-wrap:wrap;gap:6px 26px;padding:12px 0}
+.nav2 .nav-links>a{font-size:15px}
+header.scrolled .nav-top{min-height:60px}
+header.scrolled .nav.nav2{min-height:0}
+header.scrolled .nav2 .nav-links{padding:8px 0}
+.hero{padding-top:170px}
+.page-hero{padding-top:220px}
+html{scroll-padding-top:160px}
+
+/* desktop & laptop (1024px and up): always show the full menu */
+@media(min-width:1024px){
+  .menu-btn{display:none!important}
+  .nav2 .nav-links{display:flex!important;position:static;visibility:visible;opacity:1;transform:none;box-shadow:none;background:none;flex-direction:row;width:auto;max-height:none;overflow:visible;border-radius:0}
+  .nav2 .nav-links>a{width:auto;border-bottom:0;padding:4px 0;font-size:15px}
+  .nav2 .nav-links>a.nav-evening{padding:5px 12px;margin:0}
+  .nav2 .nav-links>a.nav-donate-m{display:none}
+  .nav2 .nav-actions .btn{display:inline-flex!important}
+}
+@media(min-width:1024px) and (max-width:1250px){
+  .nav2 .nav-links{gap:6px 16px}
+  .nav2 .nav-links>a{font-size:14px}
+  .nav-phone+.nav-phone{display:none}
+}
+/* tablets & phones: collapse into the ☰ panel */
+@media(max-width:1023px){
+  .nav-top{border-bottom:0;min-height:76px}
+  .nav-phone{display:none}
+  .nav2 .nav-actions .btn{display:none}
+  .nav2 .nav-links{position:absolute;top:calc(100% + 10px);left:0;width:100%;flex-direction:column;align-items:flex-start;flex-wrap:nowrap;gap:2px;padding:16px 22px;background:#fff;border-radius:16px;box-shadow:var(--shadow);visibility:hidden;opacity:0;transform:translateY(-8px);max-height:calc(100vh - 110px);overflow-y:auto}
+  .nav2 .nav-links.open{visibility:visible;opacity:1;transform:none}
+  .nav2 .nav-links>a{width:100%;padding:10px 0;font-size:15.5px;border-bottom:1px solid var(--border)}
+  .nav2 .nav-links>a.nav-evening{width:auto;margin:6px 0;padding:7px 14px}
+  .hero{padding-top:110px}
+  .page-hero{padding-top:140px}
+  html{scroll-padding-top:110px}
+}
+@media(max-width:600px){
+  header .nav.nav2{padding:0 14px}
+  .nav-top{min-height:64px}
+  header.scrolled .nav-top{min-height:58px}
+  .hero{padding-top:90px}
+  .page-hero{padding-top:118px}
+}
